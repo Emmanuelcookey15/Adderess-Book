@@ -9,17 +9,15 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.emmanuel.cookey.addressbook.R
 import com.emmanuel.cookey.addressbook.data.model.Contact
 import com.emmanuel.cookey.addressbook.viewmodel.MainViewModel
 import com.emmanuel.cookey.addressbook.views.adapters.ContactListAdapter
-import com.raywenderlich.wewatch.action
-import com.raywenderlich.wewatch.snack
+import com.emmanuel.cookey.addressbook.action
+import com.emmanuel.cookey.addressbook.snack
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_view_custom_layout.*
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 @AndroidEntryPoint

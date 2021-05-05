@@ -1,17 +1,17 @@
 package com.emmanuel.cookey.addressbook.viewmodel
 
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import com.emmanuel.cookey.addressbook.data.model.Contact
 import com.emmanuel.cookey.addressbook.data.ContactRepository
 import com.emmanuel.cookey.addressbook.data.ContactRepositoryImpl
-import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 
-@HiltViewModel
-class MainViewModel @Inject constructor(private val repository: ContactRepository) : ViewModel() {
+
+class MainViewModel @ViewModelInject constructor(private val repository: ContactRepository) : ViewModel() {
 
     //1
     private val allContacts = MediatorLiveData<List<Contact>>()
