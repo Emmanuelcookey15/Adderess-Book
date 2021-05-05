@@ -1,5 +1,6 @@
 package com.emmanuel.cookey.addressbook.viewmodel
 
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
@@ -10,10 +11,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class EditViewModel @Inject constructor(private val repository: ContactRepository = ContactRepositoryImpl()): ViewModel()  {
+class EditViewModel @Inject constructor(private val repository: ContactRepository): ViewModel()  {
     //1
     fun saveMovie(contact: Contact) {
-        repository.saveContact(contact)
+        repository.update(contact)
     }
 
 

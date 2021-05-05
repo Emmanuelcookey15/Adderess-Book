@@ -2,7 +2,9 @@ package com.emmanuel.cookey.addressbook.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 abstract class BaseActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()

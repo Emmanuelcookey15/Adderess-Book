@@ -31,7 +31,15 @@
 package com.raywenderlich.wewatch
 
 import android.view.View
+import androidx.lifecycle.SavedStateHandle
+import com.emmanuel.cookey.addressbook.data.ContactRepository
+import com.emmanuel.cookey.addressbook.data.ContactRepositoryImpl
 import com.google.android.material.snackbar.Snackbar
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 inline fun View.snack(message: String, length: Int = Snackbar.LENGTH_LONG) {
   val snack = Snackbar.make(this, message, length)

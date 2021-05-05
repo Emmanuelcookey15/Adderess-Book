@@ -13,9 +13,12 @@ import com.emmanuel.cookey.addressbook.viewmodel.EditViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.raywenderlich.wewatch.action
 import com.raywenderlich.wewatch.snack
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_add_contact.*
 import kotlinx.android.synthetic.main.toolbar_view_custom_layout.*
 
+
+@AndroidEntryPoint
 class AddContactActivity : BaseActivity() {
 
     private val toolbar: Toolbar by lazy { toolbar_toolbar_view as Toolbar }

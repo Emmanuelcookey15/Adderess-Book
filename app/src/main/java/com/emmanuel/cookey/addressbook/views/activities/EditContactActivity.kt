@@ -14,15 +14,18 @@ import com.emmanuel.cookey.addressbook.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.raywenderlich.wewatch.action
 import com.raywenderlich.wewatch.snack
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_add_contact.*
 import kotlinx.android.synthetic.main.activity_edit_contact.*
 import kotlinx.android.synthetic.main.toolbar_view_custom_layout.*
 
+@AndroidEntryPoint
 class EditContactActivity : BaseActivity() {
 
 
     private val toolbar: Toolbar by lazy { toolbar_toolbar_view as Toolbar }
 
+    var contactId = 0
     var contactName: String = ""
     var contactPhone = ""
     var contactEmail = ""
@@ -36,6 +39,8 @@ class EditContactActivity : BaseActivity() {
 
         val intentFromMainActivity = intent
         initializeEditText(intentFromMainActivity.getIntExtra("contact_id", 0))
+
+
     }
 
     override fun getToolbarInstance(): Toolbar? {
@@ -45,21 +50,25 @@ class EditContactActivity : BaseActivity() {
     fun initializeEditText (id: Int) {
         if (id != 0) {
             viewModel.getContacts(id).observe(this, Observer {
+                contactId = it.id!!
                 contactName = it.name.toString()
                 contactPhone = it.phoneNumber.toString()
                 contactEmail = it.emailAddress.toString()
+
+                nameEdit.setText(contactName)
+                phone_num_edit.setText(contactPhone)
+                emailEdit.setText(contactEmail)
             })
         }
     }
 
 
     fun editContactClicked(view: View) {
-        nameEdit.setText(contactName)
-        phone_num_edit.setText(contactPhone)
-        emailEdit.setText(contactEmail)
+
         if (nameEditText.text.toString().isNotBlank()) {
             viewModel.saveMovie(
                 Contact(
+                    id = contactId,
                     name = nameEdit.text.toString(),
                     phoneNumber = phone_num_edit.text.toString(),
                     emailAddress = emailEdit.text.toString()

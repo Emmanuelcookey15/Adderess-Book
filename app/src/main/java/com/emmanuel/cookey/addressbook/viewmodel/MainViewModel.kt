@@ -1,5 +1,6 @@
 package com.emmanuel.cookey.addressbook.viewmodel
 
+
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import com.emmanuel.cookey.addressbook.data.model.Contact
@@ -8,8 +9,9 @@ import com.emmanuel.cookey.addressbook.data.ContactRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+
 @HiltViewModel
-class MainViewModel @Inject constructor(private val repository: ContactRepository = ContactRepositoryImpl()) : ViewModel() {
+class MainViewModel @Inject constructor(private val repository: ContactRepository) : ViewModel() {
 
     //1
     private val allContacts = MediatorLiveData<List<Contact>>()
@@ -25,8 +27,5 @@ class MainViewModel @Inject constructor(private val repository: ContactRepositor
             allContacts.postValue(contacts)
         }
     }
-    //5
-    fun deleteSavedMovies(contact: Contact) {
-        repository.deleteContact(contact)
-    }
+
 }

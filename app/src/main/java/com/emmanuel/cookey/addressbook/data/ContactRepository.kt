@@ -39,7 +39,7 @@ interface ContactRepository {
 
   fun saveContact(contact: Contact)
 
-  fun deleteContact(contact: Contact)
+  fun update(contact: Contact)
 
   fun selectedContact(id: Int): LiveData<Contact>
 

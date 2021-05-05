@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData
 import com.emmanuel.cookey.addressbook.data.db.ContactDao
 import com.emmanuel.cookey.addressbook.data.model.Contact
 import com.emmanuel.cookey.addressbook.db
+import javax.inject.Inject
 import kotlin.concurrent.thread
 
-class ContactRepositoryImpl : ContactRepository {
+class ContactRepositoryImpl @Inject constructor() : ContactRepository {
     //1
     private val contactDao: ContactDao = db.contactDao()
     private val allContacts: LiveData<List<Contact>>
@@ -15,13 +16,7 @@ class ContactRepositoryImpl : ContactRepository {
     init {
         allContacts = contactDao.getAll()
     }
-    
-    //3
-    override fun deleteContact(contact: Contact) {
-        thread {
-            db.contactDao().delete(contact.id)
-        }
-    }
+
 
     override fun selectedContact(id: Int): LiveData<Contact> {
         val contact = contactDao.getContact(id)
@@ -32,9 +27,15 @@ class ContactRepositoryImpl : ContactRepository {
     override fun getSavedContact() = allContacts
 
     //5
-    override fun saveContact(movie: Contact) {
+    override fun saveContact(contact: Contact) {
         thread {
-            contactDao.insert(movie)
+            contactDao.insert(contact)
+        }
+    }
+
+    override fun update(contact: Contact) {
+        thread {
+            contactDao.updateContact(contact)
         }
     }
 

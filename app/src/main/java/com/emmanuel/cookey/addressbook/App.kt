@@ -32,10 +32,14 @@ package com.emmanuel.cookey.addressbook
 
 import android.app.Application
 import com.emmanuel.cookey.addressbook.data.db.ContactDatabase
+import dagger.hilt.android.HiltAndroidApp
 
 lateinit var db: ContactDatabase
 
+
+@HiltAndroidApp
 class App : Application() {
+
 
   companion object {
     lateinit var INSTANCE: App

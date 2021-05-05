@@ -16,11 +16,13 @@ import com.emmanuel.cookey.addressbook.viewmodel.MainViewModel
 import com.emmanuel.cookey.addressbook.views.adapters.ContactListAdapter
 import com.raywenderlich.wewatch.action
 import com.raywenderlich.wewatch.snack
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_view_custom_layout.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     private val toolbar: Toolbar by lazy { toolbar_toolbar_view as Toolbar }

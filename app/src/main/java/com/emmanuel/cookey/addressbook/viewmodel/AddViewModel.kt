@@ -7,8 +7,9 @@ import com.emmanuel.cookey.addressbook.data.ContactRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+
 @HiltViewModel
-class AddViewModel @Inject constructor(private val repository: ContactRepository = ContactRepositoryImpl()): ViewModel()  {
+class AddViewModel @Inject constructor(private val repository: ContactRepository): ViewModel()  {
     //2
     fun saveMovie(contact: Contact) {
         repository.saveContact(contact)

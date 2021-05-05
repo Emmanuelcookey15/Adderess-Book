@@ -47,9 +47,6 @@ interface ContactDao {
   fun getContact(id: Int): LiveData<Contact>
 
   @Update
-  fun updateMovie(movie: Contact)
-
-  @Query("DELETE FROM contact_table WHERE id = :id")
-  fun delete(id: Int?)
+  fun updateContact(contact: Contact)
 
 }
