@@ -5,11 +5,11 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import com.emmanuel.cookey.addressbook.R
+import com.emmanuel.cookey.addressbook.action
 import com.emmanuel.cookey.addressbook.data.model.Contact
+import com.emmanuel.cookey.addressbook.snack
 import com.emmanuel.cookey.addressbook.viewmodel.AddViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.emmanuel.cookey.addressbook.action
-import com.emmanuel.cookey.addressbook.snack
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_add_contact.*
 import kotlinx.android.synthetic.main.toolbar_view_custom_layout.*
@@ -30,10 +30,18 @@ class AddContactActivity : BaseActivity() {
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 
 
     override fun getToolbarInstance(): Toolbar? {
         toolbar.title = "Add Contact"
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         return toolbar
     }
 

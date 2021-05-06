@@ -46,8 +46,16 @@ class EditContactActivity : BaseActivity() {
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     override fun getToolbarInstance(): Toolbar? {
         toolbar.title = "Edit Contact"
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         return toolbar
     }
 
