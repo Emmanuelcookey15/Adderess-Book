@@ -9,8 +9,8 @@ class ContactTest{
     @Test
     fun testGetContactNameAsCapitalized() {
         //1
-        val contact = Contact(name = "EMANUEL COOKEY", phoneNumber = "010020200", emailAddress = "Emmanuelcookey@gmail.com")
-        assertEquals("Emmanuel Cookey", contact.nameCapitalized())
+        val contact = Contact(name = "emmanuel cookey", phoneNumber = "010020200", emailAddress = "Emmanuelcookey@gmail.com")
+        assertEquals("Emmanuel Cookey",  contact.nameCapitalized())
     }
 
 
@@ -18,14 +18,14 @@ class ContactTest{
     fun testGetContactNameEdgeCaseEmpty() {
         //3
         val contact = Contact(name = "", phoneNumber = "010020200", emailAddress = "emmanuelcookey22@gmail.com")
-        assertEquals("", contact.emailInLowerCase())
+        assertEquals("", contact.nameCapitalized())
     }
 
     @Test
     fun testGetContactNameEdgeCaseNull() {
         //4
         val contact = Contact(phoneNumber = "010020200", emailAddress = "emmanuelcookey22@gmail.com")
-        assertEquals(null, contact.emailInLowerCase())
+        assertEquals(null, contact.nameCapitalized())
     }
 
 
@@ -49,7 +49,7 @@ class ContactTest{
     fun testGetContactEmailCaseNull() {
         //4
         val contact = Contact(name = "EMANUEL COOKEY", phoneNumber = "010020200")
-        assertEquals("", contact.emailInLowerCase())
+        assertEquals(null, contact.emailInLowerCase())
     }
 
 }

@@ -69,7 +69,7 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorAccent"
         android:onClick="addContactClicked"
-        android:text="ADD MOVIE"
+        android:text="ADD CONTACT"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
         android:textColor="@color/backgroundLight"
         android:textStyle="bold"

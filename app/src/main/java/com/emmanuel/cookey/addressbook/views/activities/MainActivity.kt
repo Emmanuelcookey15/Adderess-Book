@@ -56,11 +56,9 @@ class MainActivity : BaseActivity() {
 
     private fun editContactDetails(contact: Contact) {
         mainLayout.snack("You want to edit ${contact.name}?", Snackbar.LENGTH_LONG) {
-            action(getString(R.string.ok)) {
-                val intent = Intent(this@MainActivity, EditContactActivity::class.java)
-                intent.putExtra("contact_id", contact.id)
-                startActivity(intent)
-            }
+            val intent = Intent(this@MainActivity, EditContactActivity::class.java)
+            intent.putExtra("contact", contact)
+            startActivity(intent)
         }
 
     }

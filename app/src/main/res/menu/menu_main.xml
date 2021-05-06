@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="Setting"
-        app:showAsAction="never" />
+        android:title="Click Item to Edit"
+        app:showAsAction="always" />
 
 </menu>

@@ -28,15 +28,21 @@ class EditContactActivity : BaseActivity() {
     var contactEmail = ""
 
 
+
+
     private val viewModel: EditViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_contact)
 
-        val intentFromMainActivity = intent
-        initializeEditText(intentFromMainActivity.getIntExtra("contact_id", 0))
+        val intentFromMain = intent
 
+        initializeEditText(intentFromMain.getParcelableExtra<Contact>("contact"))
+
+        editContactButton.setOnClickListener {
+            editContact()
+        }
 
     }
 
@@ -44,25 +50,25 @@ class EditContactActivity : BaseActivity() {
         return toolbar
     }
 
-    fun initializeEditText (id: Int) {
-        if (id != 0) {
-            viewModel.getContacts(id).observe(this, Observer {
-                contactId = it.id!!
-                contactName = it.name.toString()
-                contactPhone = it.phoneNumber.toString()
-                contactEmail = it.emailAddress.toString()
+    fun initializeEditText (contact: Contact?) {
+        if (contact != null) {
+            contactId = contact.id!!
+            contactName = contact.name!!
+            contactPhone = contact.phoneNumber!!
+            contactEmail = contact.emailAddress!!
 
-                nameEdit.setText(contactName)
-                phone_num_edit.setText(contactPhone)
-                emailEdit.setText(contactEmail)
-            })
+            nameEdit.setText(contactName)
+            phone_num_edit.setText(contactPhone)
+            emailEdit.setText(contactEmail)
         }
+
     }
 
 
-    fun editContactClicked(view: View) {
+    fun editContact() {
 
-        if (nameEditText.text.toString().isNotBlank()) {
+        if (nameEdit.text.toString().isNotBlank() && contactId != 0) {
+            val intentFromMainActivity = intent
             viewModel.saveMovie(
                 Contact(
                     id = contactId,
@@ -78,7 +84,7 @@ class EditContactActivity : BaseActivity() {
     }
 
     private fun showMessage(msg: String) {
-        addLayout.snack((msg), Snackbar.LENGTH_LONG) {
+        editLayout.snack((msg), Snackbar.LENGTH_LONG) {
             action(getString(R.string.ok)) {
             }
         }
