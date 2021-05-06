@@ -17,10 +17,4 @@ class EditViewModel @ViewModelInject constructor(private val repository: Contact
         repository.update(contact)
     }
 
-    //2
-    fun getContacts(id: Int): LiveData<Contact> {
-        val specificContact = repository.selectedContact(id)
-        return specificContact
-
-    }
 }

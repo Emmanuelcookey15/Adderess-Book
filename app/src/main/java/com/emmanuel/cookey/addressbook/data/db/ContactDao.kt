@@ -38,13 +38,10 @@ import com.emmanuel.cookey.addressbook.data.model.Contact
 interface ContactDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun insert(movie: Contact)
+  fun insert(contact: Contact)
 
   @Query("select * from contact_table")
   fun getAll(): LiveData<List<Contact>>
-
-  @Query("SELECT * FROM contact_table WHERE id LIKE :id ORDER BY id")
-  fun getContact(id: Int): LiveData<Contact>
 
   @Update
   fun updateContact(contact: Contact)

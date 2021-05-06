@@ -18,10 +18,6 @@ class ContactRepositoryImpl @Inject constructor() : ContactRepository {
     }
 
 
-    override fun selectedContact(id: Int): LiveData<Contact> {
-        val contact = contactDao.getContact(id)
-        return contact
-    }
 
     //4
     override fun getSavedContact() = allContacts

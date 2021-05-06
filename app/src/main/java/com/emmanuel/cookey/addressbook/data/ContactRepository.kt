@@ -41,7 +41,7 @@ interface ContactRepository {
 
   fun update(contact: Contact)
 
-  fun selectedContact(id: Int): LiveData<Contact>
+
 
 
 }

@@ -33,6 +33,7 @@ class AddContactActivity : BaseActivity() {
 
 
     override fun getToolbarInstance(): Toolbar? {
+        toolbar.title = "Add Contact"
         return toolbar
     }
 

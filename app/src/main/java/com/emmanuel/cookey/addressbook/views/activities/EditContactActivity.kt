@@ -47,6 +47,7 @@ class EditContactActivity : BaseActivity() {
     }
 
     override fun getToolbarInstance(): Toolbar? {
+        toolbar.title = "Edit Contact"
         return toolbar
     }
 
