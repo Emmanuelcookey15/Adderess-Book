@@ -67,7 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/black"
         android:onClick="addContactClicked"
         android:text="ADD CONTACT"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"

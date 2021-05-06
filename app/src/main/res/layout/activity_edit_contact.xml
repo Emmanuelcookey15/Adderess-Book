@@ -70,7 +70,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/black"
         android:text="Update Contact"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
         android:textColor="@color/backgroundLight"
